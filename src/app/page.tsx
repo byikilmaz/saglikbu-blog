@@ -37,42 +37,48 @@ const categories = [
     description: "Kardiyovasküler sistem sağlığı",
     icon: "❤️",
     postCount: 24,
-    slug: "kalp-sagligi"
+    slug: "kalp-sagligi",
+    color: "#E53E3E"
   },
   {
     name: "Beslenme",
     description: "Sağlıklı beslenme rehberleri",
     icon: "🥗",
     postCount: 31,
-    slug: "beslenme"
+    slug: "beslenme",
+    color: "#38A169"
   },
   {
     name: "Ruh Sağlığı",
     description: "Mental sağlık ve psikoloji",
     icon: "🧠",
     postCount: 18,
-    slug: "ruh-sagligi"
+    slug: "ruh-sagligi",
+    color: "#805AD5"
   },
   {
     name: "Kadın Sağlığı",
     description: "Kadınlara özel sağlık konuları",
     icon: "🛡️",
     postCount: 22,
-    slug: "kadin-sagligi"
+    slug: "kadin-sagligi",
+    color: "#D53F8C"
   },
   {
     name: "Çocuk Sağlığı",
     description: "Pediatri ve çocuk gelişimi",
     icon: "👶",
     postCount: 19,
-    slug: "cocuk-sagligi"
+    slug: "cocuk-sagligi",
+    color: "#3182CE"
   },
   {
     name: "Spor Sağlığı",
     description: "Egzersiz ve fitness rehberi",
     icon: "⚡",
     postCount: 15,
-    slug: "spor-sagligi"
+    slug: "spor-sagligi",
+    color: "#DD6B20"
   }
 ];
 
@@ -83,43 +89,73 @@ const stats = [
   { number: "24/7", label: "Destek", icon: "🕰️" }
 ];
 
+const testimonials = [
+  {
+    name: "Ayşe K.",
+    text: "SağlıkBu sayesinde sağlıklı beslenme konusunda çok şey öğrendim. Uzman doktor tavsiyeleri gerçekten çok değerli.",
+    rating: 5
+  },
+  {
+    name: "Mehmet B.",
+    text: "Kalp sağlığım konusunda endişelerim vardı. Buradaki makaleler sayesinde doktoruma gitmeden önce bilgi sahibi oldum.",
+    rating: 5
+  },
+  {
+    name: "Fatma Y.",
+    text: "Çocuğumun sağlığı konusunda sürekli SağlıkBu'yu takip ediyorum. Çok güvenilir bir kaynak.",
+    rating: 5
+  }
+];
+
 export default function Home() {
   return (
-    <div className="min-h-screen">
+    <div className="homepage">
       {/* Hero Section */}
-      <section className="hero">
+      <section className="hero-section">
+        <div className="hero-bg"></div>
         <div className="hero-content">
           <div className="container">
-            <h1 className="fade-in-up">
-              Sağlıklı Yaşamın 
-              <br />
-              Güvenilir Rehberi
-            </h1>
-            <p className="fade-in-up">
-              Uzman doktorlarımızdan güncel sağlık bilgileri, beslenme önerileri ve 
-              yaşam kalitesini artıracak ipuçları. Sağlığınız için güvenilir kaynak.
-            </p>
-            <div className="flex gap-4 justify-center fade-in-up">
-              <Link href="/blog" className="btn btn-primary">
-                📖 Makaleleri Keşfet
-              </Link>
-              <Link href="/doctors" className="btn btn-outline">
-                👨‍⚕️ Uzman Doktorlar
-              </Link>
+            <div className="hero-text">
+              <h1 className="hero-title">
+                Sağlıklı Yaşamın
+                <br />
+                <span className="highlight">Güvenilir Rehberi</span>
+              </h1>
+              <p className="hero-description">
+                Uzman doktorlarımızdan güncel sağlık bilgileri, beslenme önerileri ve 
+                yaşam kalitesini artıracak ipuçları. Sağlığınız için güvenilir kaynak.
+              </p>
+              <div className="hero-buttons">
+                <Link href="/blog" className="btn btn-primary btn-large">
+                  <span className="btn-icon">📖</span>
+                  Makaleleri Keşfet
+                </Link>
+                <Link href="/doctors" className="btn btn-secondary btn-large">
+                  <span className="btn-icon">👨‍⚕️</span>
+                  Uzman Doktorlar
+                </Link>
+              </div>
+            </div>
+            <div className="hero-visual">
+              <div className="floating-card">
+                <div className="card-icon">❤️</div>
+                <h3>SağlıkBu</h3>
+                <p>Sağlığınız bizim önceliğimiz</p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 bg-white">
+      <section className="stats-section">
         <div className="container">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="stats-grid">
             {stats.map((stat, index) => (
-              <div key={index} className="text-center fade-in-up">
-                <div className="text-4xl mb-2">{stat.icon}</div>
-                <div className="text-3xl font-bold text-primary mb-1">{stat.number}</div>
-                <div className="text-gray-600">{stat.label}</div>
+              <div key={index} className="stat-card">
+                <div className="stat-icon">{stat.icon}</div>
+                <div className="stat-number">{stat.number}</div>
+                <div className="stat-label">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -127,10 +163,10 @@ export default function Home() {
       </section>
 
       {/* Featured Posts */}
-      <section className="featured-posts">
+      <section className="featured-section">
         <div className="container">
-          <div className="text-center mb-16">
-            <h2 className="section-title gradient-text">
+          <div className="section-header">
+            <h2 className="section-title">
               Öne Çıkan Sağlık Makaleleri
             </h2>
             <p className="section-subtitle">
@@ -139,21 +175,29 @@ export default function Home() {
           </div>
           
           <div className="posts-grid">
-            {featuredPosts.map((post) => (
-              <article key={post.id} className="post-card fade-in-up">
-                <div className="post-card-content">
-                  <div className="text-center mb-4">
-                    <div className="text-5xl mb-3">{post.image}</div>
-                  </div>
+            {featuredPosts.map((post, index) => (
+              <article key={post.id} className="post-card" style={{animationDelay: `${index * 0.1}s`}}>
+                <div className="post-image">
+                  <div className="post-emoji">{post.image}</div>
+                  <div className="post-overlay"></div>
+                </div>
+                <div className="post-content">
                   <span className="post-category">{post.category}</span>
                   <h3 className="post-title">{post.title}</h3>
                   <p className="post-excerpt">{post.excerpt}</p>
                   <div className="post-meta">
-                    <span>👨‍⚕️ {post.author}</span>
-                    <span>⏱️ {post.readingTime} dk</span>
+                    <div className="post-author">
+                      <span className="author-icon">👨‍⚕️</span>
+                      <span>{post.author}</span>
+                    </div>
+                    <div className="post-time">
+                      <span className="time-icon">⏱️</span>
+                      <span>{post.readingTime} dk</span>
+                    </div>
                   </div>
-                  <Link href={`/blog/${post.id}`} className="btn btn-primary w-full">
-                    Makaleyi Oku →
+                  <Link href={`/blog/${post.id}`} className="post-link">
+                    Makaleyi Oku
+                    <span className="link-arrow">→</span>
                   </Link>
                 </div>
               </article>
@@ -163,9 +207,9 @@ export default function Home() {
       </section>
 
       {/* Categories */}
-      <section className="categories">
+      <section className="categories-section">
         <div className="container">
-          <div className="text-center mb-16">
+          <div className="section-header">
             <h2 className="section-title">
               Sağlık Kategorileri
             </h2>
@@ -179,39 +223,77 @@ export default function Home() {
               <Link
                 key={index}
                 href={`/kategori/${category.slug}`}
-                className="category-card fade-in-up"
+                className="category-card"
+                style={{animationDelay: `${index * 0.1}s`}}
               >
-                <span className="category-icon">{category.icon}</span>
+                <div className="category-icon-wrapper" style={{backgroundColor: `${category.color}15`}}>
+                  <span className="category-icon">{category.icon}</span>
+                </div>
                 <h3 className="category-name">{category.name}</h3>
                 <p className="category-description">{category.description}</p>
-                <span className="category-count">{category.postCount} Makale</span>
+                <div className="category-footer">
+                  <span className="category-count">{category.postCount} Makale</span>
+                  <span className="category-arrow">→</span>
+                </div>
               </Link>
             ))}
           </div>
         </div>
       </section>
 
+      {/* Testimonials */}
+      <section className="testimonials-section">
+        <div className="container">
+          <div className="section-header">
+            <h2 className="section-title">Kullanıcılarımız Ne Diyor?</h2>
+            <p className="section-subtitle">
+              Binlerce kullanıcımızın deneyimleri
+            </p>
+          </div>
+          
+          <div className="testimonials-grid">
+            {testimonials.map((testimonial, index) => (
+              <div key={index} className="testimonial-card" style={{animationDelay: `${index * 0.1}s`}}>
+                <div className="testimonial-rating">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <span key={i} className="star">⭐</span>
+                  ))}
+                </div>
+                <p className="testimonial-text">&ldquo;{testimonial.text}&rdquo;</p>
+                <div className="testimonial-author">
+                  <div className="author-avatar">👤</div>
+                  <span className="author-name">{testimonial.name}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Newsletter */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-teal-600 text-white">
-        <div className="container text-center">
-          <div className="max-w-2xl mx-auto">
-            <h2 className="text-3xl font-bold mb-4">
-              📧 Sağlık Bültenimize Abone Olun
+      <section className="newsletter-section">
+        <div className="newsletter-bg"></div>
+        <div className="container">
+          <div className="newsletter-content">
+            <div className="newsletter-icon">📧</div>
+            <h2 className="newsletter-title">
+              Sağlık Bültenimize Abone Olun
             </h2>
-            <p className="text-xl mb-8 opacity-90">
+            <p className="newsletter-description">
               Haftalık sağlık ipuçları ve yeni makalelerimizden haberdar olun
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+            <div className="newsletter-form">
               <input
                 type="email"
                 placeholder="E-posta adresiniz"
-                className="flex-1 px-4 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-white"
+                className="newsletter-input"
               />
-              <button className="btn btn-secondary whitespace-nowrap">
-                ✉️ Abone Ol
+              <button className="newsletter-btn">
+                <span className="btn-icon">✉️</span>
+                Abone Ol
               </button>
             </div>
-            <p className="text-sm mt-4 opacity-75">
+            <p className="newsletter-note">
               İstediğiniz zaman abonelikten çıkabilirsiniz
             </p>
           </div>
@@ -219,22 +301,24 @@ export default function Home() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-20 bg-white">
-        <div className="container text-center">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-4xl font-bold mb-6 gradient-text">
+      <section className="cta-section">
+        <div className="container">
+          <div className="cta-content">
+            <h2 className="cta-title">
               Sağlığınız İçin Doğru Adrestesiniz
             </h2>
-            <p className="text-xl text-gray-600 mb-8">
+            <p className="cta-description">
               Uzman doktorlarımızla iletişime geçin, sorularınızı sorun ve 
               kişiselleştirilmiş sağlık tavsiyeleri alın.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/iletisim" className="btn btn-primary">
-                🏥 Doktorlarımızla İletişim
+            <div className="cta-buttons">
+              <Link href="/iletisim" className="btn btn-primary btn-large">
+                <span className="btn-icon">🏥</span>
+                Doktorlarımızla İletişim
               </Link>
-              <Link href="/hakkimizda" className="btn btn-outline">
-                ℹ️ Hakkımızda
+              <Link href="/hakkimizda" className="btn btn-outline btn-large">
+                <span className="btn-icon">ℹ️</span>
+                Hakkımızda
               </Link>
             </div>
           </div>
@@ -243,129 +327,3 @@ export default function Home() {
     </div>
   );
 }
-
-// CSS Styles for this component (already added to globals.css)
-const styles = `
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 2rem;
-  margin-top: 3rem;
-}
-
-.stat-item {
-  text-align: center;
-  padding: 2rem;
-  background: white;
-  border-radius: 1rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-}
-
-.stat-item:hover {
-  transform: translateY(-5px);
-}
-
-.stat-number {
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: #0066CC;
-  margin-bottom: 0.5rem;
-}
-
-.stat-label {
-  color: #6b7280;
-  font-weight: 500;
-}
-
-.newsletter-section {
-  background: linear-gradient(135deg, #0066CC 0%, #00AA88 100%);
-  color: white;
-  padding: 5rem 0;
-}
-
-.newsletter-form {
-  display: flex;
-  gap: 1rem;
-  max-width: 400px;
-  margin: 0 auto;
-}
-
-.newsletter-input {
-  flex: 1;
-  padding: 1rem;
-  border: none;
-  border-radius: 0.5rem;
-  font-size: 1rem;
-}
-
-.newsletter-input:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
-}
-
-@media (max-width: 640px) {
-  .newsletter-form {
-    flex-direction: column;
-  }
-  
-  .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-  }
-  
-  .stat-item {
-    padding: 1.5rem 1rem;
-  }
-}
-
-.w-full { width: 100%; }
-.max-w-2xl { max-width: 42rem; }
-.max-w-3xl { max-width: 48rem; }
-.max-w-md { max-width: 28rem; }
-.mx-auto { margin-left: auto; margin-right: auto; }
-.flex { display: flex; }
-.flex-col { flex-direction: column; }
-.flex-row { flex-direction: row; }
-.items-center { align-items: center; }
-.justify-center { justify-content: center; }
-.gap-4 { gap: 1rem; }
-.gap-8 { gap: 2rem; }
-.py-20 { padding-top: 5rem; padding-bottom: 5rem; }
-.mb-16 { margin-bottom: 4rem; }
-.mb-8 { margin-bottom: 2rem; }
-.mb-6 { margin-bottom: 1.5rem; }
-.mb-4 { margin-bottom: 1rem; }
-.mb-3 { margin-bottom: 0.75rem; }
-.mb-2 { margin-bottom: 0.5rem; }
-.mb-1 { margin-bottom: 0.25rem; }
-.mt-4 { margin-top: 1rem; }
-.text-center { text-align: center; }
-.text-4xl { font-size: 2.25rem; }
-.text-3xl { font-size: 1.875rem; }
-.text-xl { font-size: 1.25rem; }
-.text-sm { font-size: 0.875rem; }
-.text-5xl { font-size: 3rem; }
-.font-bold { font-weight: 700; }
-.text-primary { color: #0066CC; }
-.text-gray-600 { color: #6b7280; }
-.text-gray-900 { color: #1f2937; }
-.bg-white { background-color: white; }
-.opacity-90 { opacity: 0.9; }
-.opacity-75 { opacity: 0.75; }
-.whitespace-nowrap { white-space: nowrap; }
-.focus\\:outline-none:focus { outline: none; }
-.focus\\:ring-2:focus { box-shadow: 0 0 0 2px; }
-.focus\\:ring-white:focus { --tw-ring-color: white; }
-
-.grid { display: grid; }
-.grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-
-@media (min-width: 768px) {
-  .md\\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-}
-
-@media (min-width: 640px) {
-  .sm\\:flex-row { flex-direction: row; }
-}
-`;
