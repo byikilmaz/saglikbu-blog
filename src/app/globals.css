@@ -1,26 +1,134 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Source+Sans+Pro:wght@300;400;600;700&display=swap');
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #F8FAFC;
+  --foreground: #1F2937;
+  --primary: #0066CC;
+  --secondary: #00AA88;
+  --accent: #FF6B35;
+  --muted: #f1f5f9;
+  --border: #e2e8f0;
+  --card: #ffffff;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-serif: 'Source Sans Pro', Georgia, serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', system-ui, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Ana yazı tipi için Source Sans Pro */
+.content-text {
+  font-family: 'Source Sans Pro', Georgia, serif;
+}
+
+/* Başlıklar için Inter */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+/* Smooth transitions */
+a, button {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--muted);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0052a3;
+}
+
+/* Blog içerik stilleri */
+.blog-content {
+  font-family: 'Source Sans Pro', Georgia, serif;
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--foreground);
+}
+
+.blog-content h1,
+.blog-content h2,
+.blog-content h3,
+.blog-content h4,
+.blog-content h5,
+.blog-content h6 {
+  font-family: 'Inter', system-ui, sans-serif;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: var(--foreground);
+}
+
+.blog-content p {
+  margin-bottom: 1.5rem;
+}
+
+.blog-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  margin: 1.5rem 0;
+  box-shadow: 0 4px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* Loading animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.animate-slide-in-up {
+  animation: slideInUp 0.6s ease-out;
 }
