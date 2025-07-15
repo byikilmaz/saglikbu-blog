@@ -1,38 +1,29 @@
 import Link from "next/link";
-import { ArrowRight, Heart, Activity, Brain, Baby, Utensils, Shield, Clock, Eye } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
-// Sample data - Bu veriler normalde database'den gelecek
+// Sample data
 const featuredPosts = [
   {
     id: 1,
     title: "Kalp Sağlığını Korumak İçin 10 Altın Kural",
     excerpt: "Kalp sağlığınızı korumak için günlük hayatınızda uygulayabileceğiniz basit ama etkili yöntemler.",
-    image: "/images/kalp-sagligi.jpg",
     category: "Kalp Sağlığı",
     readingTime: 5,
-    publishedAt: "2024-01-15",
     author: "Dr. Mehmet Özkan"
   },
   {
     id: 2,
     title: "Sağlıklı Beslenme Rehberi: Ne Yemeli, Ne Yememeli?",
     excerpt: "Uzmanlardan sağlıklı beslenme önerileri ve dengeli diyet planı oluşturma rehberi.",
-    image: "/images/beslenme.jpg",
     category: "Beslenme",
     readingTime: 7,
-    publishedAt: "2024-01-12",
     author: "Dr. Ayşe Demir"
   },
   {
     id: 3,
     title: "Mental Sağlık: Stresle Başa Çıkma Yolları",
     excerpt: "Modern yaşamın getirdiği stresle başa çıkmak için psikoloji uzmanlarından öneriler.",
-    image: "/images/mental-saglik.jpg",
     category: "Ruh Sağlığı",
     readingTime: 6,
-    publishedAt: "2024-01-10",
     author: "Dr. Can Yılmaz"
   }
 ];
@@ -41,44 +32,38 @@ const categories = [
   {
     name: "Kalp Sağlığı",
     description: "Kardiyovasküler sistem sağlığı",
-    icon: Heart,
+    icon: "❤️",
     postCount: 24,
-    color: "text-red-500"
   },
   {
     name: "Beslenme",
     description: "Sağlıklı beslenme rehberleri",
-    icon: Utensils,
+    icon: "🥗",
     postCount: 31,
-    color: "text-green-500"
   },
   {
     name: "Ruh Sağlığı",
     description: "Mental sağlık ve psikoloji",
-    icon: Brain,
+    icon: "🧠",
     postCount: 18,
-    color: "text-purple-500"
   },
   {
     name: "Kadın Sağlığı",
     description: "Kadına özel sağlık konuları",
-    icon: Shield,
+    icon: "🛡️",
     postCount: 22,
-    color: "text-pink-500"
   },
   {
     name: "Çocuk Sağlığı",
     description: "Pediatri ve çocuk gelişimi",
-    icon: Baby,
+    icon: "👶",
     postCount: 16,
-    color: "text-blue-500"
   },
   {
     name: "Spor Sağlığı",
     description: "Egzersiz ve fitness rehberleri",
-    icon: Activity,
+    icon: "⚡",
     postCount: 12,
-    color: "text-orange-500"
   }
 ];
 
@@ -91,55 +76,53 @@ const popularPosts = [
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div>
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary/10 via-secondary/5 to-accent/10 py-16 lg:py-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <div className="space-y-8">
-              <div className="space-y-6">
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-                  Sağlığınız İçin
-                  <span className="text-primary block">Güvenilir Kaynak</span>
-                </h1>
-                <p className="text-lg sm:text-xl text-gray-600 leading-relaxed max-w-lg">
-                  Uzman doktorlardan sağlık tavsiyeleri, güncel tıp haberleri ve 
-                  kapsamlı sağlık rehberleri ile sağlıklı yaşamın anahtarını keşfedin.
-                </p>
-              </div>
+      <section className="hero">
+        <div className="container">
+          <div className="hero-content">
+            <div>
+              <h1 className="mb-4">
+                Sağlığınız İçin
+                <br />
+                <span className="text-primary">Güvenilir Kaynak</span>
+              </h1>
+              <p className="mb-8 text-gray-600" style={{ fontSize: '1.2rem', maxWidth: '500px' }}>
+                Uzman doktorlardan sağlık tavsiyeleri, güncel tıp haberleri ve 
+                kapsamlı sağlık rehberleri ile sağlıklı yaşamın anahtarını keşfedin.
+              </p>
               
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-primary hover:bg-primary/90 h-12 px-6">
-                  Sağlık Bloglarını Keşfet
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-                <Button variant="outline" size="lg" className="h-12 px-6">
+              <div className="flex gap-4" style={{ flexDirection: 'column', alignItems: 'flex-start', gap: '1rem' }}>
+                <Link href="/blog" className="btn btn-primary">
+                  Sağlık Bloglarını Keşfet →
+                </Link>
+                <Link href="/doctors" className="btn btn-outline">
                   Uzman Doktorlarımız
-                </Button>
+                </Link>
               </div>
 
-              <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-8 space-y-4 sm:space-y-0 text-sm text-gray-600 pt-4">
-                <div className="flex items-center space-x-2">
-                  <Eye className="h-4 w-4 text-primary" />
-                  <span>10,000+ okuyucu</span>
+              <div className="flex gap-8 py-8" style={{ flexDirection: 'column', gap: '0.5rem' }}>
+                <div className="flex items-center gap-4">
+                  <span>👁️</span>
+                  <span className="text-gray-600">10,000+ okuyucu</span>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <Heart className="h-4 w-4 text-primary" />
-                  <span>500+ makale</span>
+                <div className="flex items-center gap-4">
+                  <span>❤️</span>
+                  <span className="text-gray-600">500+ makale</span>
                 </div>
               </div>
             </div>
 
-            <div className="relative">
-              <div className="aspect-square relative rounded-3xl bg-gradient-to-br from-primary/20 to-secondary/20 p-8 lg:p-12">
-                <div className="absolute inset-0 bg-white/20 backdrop-blur-sm rounded-3xl"></div>
-                <div className="relative z-10 h-full flex items-center justify-center">
-                  <div className="text-center space-y-6">
-                    <Heart className="h-24 w-24 lg:h-32 lg:w-32 text-primary mx-auto" />
-                    <h3 className="text-2xl lg:text-3xl font-bold text-gray-900">SağlıkBu</h3>
-                    <p className="text-gray-600 text-lg">Sağlığınız bizim önceliğimiz</p>
-                  </div>
-                </div>
+            <div className="text-center">
+              <div style={{ 
+                background: 'linear-gradient(135deg, rgba(0, 102, 204, 0.2) 0%, rgba(0, 170, 136, 0.2) 100%)',
+                borderRadius: '24px',
+                padding: '3rem',
+                backdropFilter: 'blur(10px)'
+              }}>
+                <div style={{ fontSize: '4rem', marginBottom: '1rem' }}>❤️</div>
+                <h3 className="mb-4">SağlıkBu</h3>
+                <p className="text-gray-600">Sağlığınız bizim önceliğimiz</p>
               </div>
             </div>
           </div>
@@ -147,212 +130,222 @@ export default function Home() {
       </section>
 
       {/* Featured Posts */}
-      <section className="py-16 lg:py-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <div className="text-center space-y-4 mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900">
-              Öne Çıkan Sağlık Makaleleri
-            </h2>
-            <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
+      <section className="py-24">
+        <div className="container">
+          <div className="text-center mb-16">
+            <h2 className="mb-4">Öne Çıkan Sağlık Makaleleri</h2>
+            <p className="text-gray-600" style={{ fontSize: '1.2rem', maxWidth: '600px', margin: '0 auto' }}>
               Uzman doktorlarımızın hazırladığı en güncel ve en çok okunan sağlık rehberleri
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          <div className="grid md-grid-cols-3 gap-8">
             {featuredPosts.map((post) => (
-              <Card key={post.id} className="group hover:shadow-xl transition-all duration-300 border-0 shadow-md">
-                <div className="aspect-video relative overflow-hidden rounded-t-xl">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20"></div>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <Heart className="h-16 w-16 text-primary/60" />
-                  </div>
+              <div key={post.id} className="card">
+                <div style={{
+                  height: '200px',
+                  background: 'linear-gradient(135deg, rgba(0, 102, 204, 0.2) 0%, rgba(0, 170, 136, 0.2) 100%)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: '4rem'
+                }}>
+                  ❤️
                 </div>
                 
-                <CardHeader className="pb-4">
-                  <div className="flex items-center justify-between text-sm text-gray-500 mb-3">
-                    <span className="bg-primary/10 text-primary px-3 py-1 rounded-full font-medium">
+                <div className="card-header">
+                  <div className="flex justify-between items-center mb-4">
+                    <span style={{
+                      backgroundColor: 'rgba(0, 102, 204, 0.1)',
+                      color: '#0066cc',
+                      padding: '0.25rem 0.75rem',
+                      borderRadius: '999px',
+                      fontSize: '0.875rem',
+                      fontWeight: '500'
+                    }}>
                       {post.category}
                     </span>
-                    <div className="flex items-center space-x-1">
-                      <Clock className="h-4 w-4" />
-                      <span>{post.readingTime} dk</span>
-                    </div>
+                    <span className="text-gray-600" style={{ fontSize: '0.875rem' }}>
+                      ⏱️ {post.readingTime} dk
+                    </span>
                   </div>
-                  <CardTitle className="group-hover:text-primary transition-colors text-lg leading-tight mb-2">
-                    {post.title}
-                  </CardTitle>
-                  <CardDescription className="text-base leading-relaxed">
-                    {post.excerpt}
-                  </CardDescription>
-                </CardHeader>
+                  <h3 className="card-title mb-4">{post.title}</h3>
+                  <p className="card-description">{post.excerpt}</p>
+                </div>
                 
-                <CardContent className="pt-0">
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm text-gray-500 font-medium">{post.author}</span>
-                    <Link href={`/blog/${post.id}`}>
-                      <Button variant="ghost" size="sm" className="h-9 px-3">
-                        Devamını Oku
-                        <ArrowRight className="ml-1 h-4 w-4" />
-                      </Button>
+                <div className="card-content">
+                  <div className="flex justify-between items-center">
+                    <span className="text-gray-600" style={{ fontSize: '0.875rem', fontWeight: '500' }}>
+                      {post.author}
+                    </span>
+                    <Link href={`/blog/${post.id}`} className="btn btn-primary" style={{ padding: '0.5rem 1rem', fontSize: '0.875rem' }}>
+                      Devamını Oku →
                     </Link>
                   </div>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
             ))}
           </div>
 
-          <div className="text-center mt-16">
-            <Link href="/blog">
-              <Button size="lg" variant="outline" className="h-12 px-8">
-                Tüm Makaleleri Görüntüle
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
+          <div className="text-center" style={{ marginTop: '4rem' }}>
+            <Link href="/blog" className="btn btn-outline">
+              Tüm Makaleleri Görüntüle →
             </Link>
           </div>
         </div>
       </section>
 
       {/* Categories Section */}
-      <section className="py-16 lg:py-24 bg-gray-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <div className="text-center space-y-4 mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900">
-              Sağlık Kategorileri
-            </h2>
-            <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
+      <section className="py-24 bg-gray-50">
+        <div className="container">
+          <div className="text-center mb-16">
+            <h2 className="mb-4">Sağlık Kategorileri</h2>
+            <p className="text-gray-600" style={{ fontSize: '1.2rem', maxWidth: '600px', margin: '0 auto' }}>
               İlgilendiğiniz sağlık konularını keşfedin ve uzman tavsiyeleri alın
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          <div className="grid md-grid-cols-3 gap-8">
             {categories.map((category) => (
-              <Card key={category.name} className="group hover:shadow-xl transition-all duration-300 cursor-pointer border-0 shadow-md">
-                <CardHeader className="text-center pb-4">
-                  <div className="mx-auto mb-6 p-4 bg-gray-50 rounded-2xl w-fit group-hover:bg-primary/10 transition-colors">
-                    <category.icon className={`h-12 w-12 ${category.color} group-hover:scale-110 transition-transform`} />
+              <div key={category.name} className="card category-card text-center">
+                <div className="card-header">
+                  <div className="category-icon">
+                    {category.icon}
                   </div>
-                  <CardTitle className="group-hover:text-primary transition-colors text-xl mb-2">
-                    {category.name}
-                  </CardTitle>
-                  <CardDescription className="text-base">
-                    {category.description}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="text-center pt-0">
-                  <span className="text-sm text-gray-500 font-medium bg-gray-100 px-3 py-1 rounded-full">
+                  <h3 className="card-title mb-4">{category.name}</h3>
+                  <p className="card-description">{category.description}</p>
+                </div>
+                <div className="card-content">
+                  <span style={{
+                    backgroundColor: '#f3f4f6',
+                    color: '#6b7280',
+                    padding: '0.25rem 0.75rem',
+                    borderRadius: '999px',
+                    fontSize: '0.875rem',
+                    fontWeight: '500'
+                  }}>
                     {category.postCount} makale
                   </span>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       {/* Why SağlıkBu Section */}
-      <section className="py-16 lg:py-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
-            <div className="lg:col-span-2">
-              <div className="text-center lg:text-left space-y-4 mb-12">
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900">
-                  Neden SağlıkBu?
-                </h2>
-                <p className="text-lg text-gray-600 max-w-2xl">
+      <section className="py-24">
+        <div className="container">
+          <div className="grid lg-grid-cols-3 gap-8">
+            <div style={{ gridColumn: 'span 2' }}>
+              <div className="mb-12">
+                <h2 className="mb-4">Neden SağlıkBu?</h2>
+                <p className="text-gray-600" style={{ fontSize: '1.2rem', maxWidth: '600px' }}>
                   Sağlığınız için güvenilir, uzman onaylı ve güncel bilgilere tek yerden ulaşın
                 </p>
               </div>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="space-y-4 p-6 rounded-xl bg-gradient-to-br from-blue-50 to-blue-100/50">
-                  <div className="flex items-center space-x-3">
-                    <div className="p-2 bg-blue-500 rounded-lg">
-                      <Shield className="h-6 w-6 text-white" />
+              <div className="grid md-grid-cols-2 gap-8">
+                <div className="card" style={{ padding: '1.5rem', background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(59, 130, 246, 0.1) 100%)' }}>
+                  <div className="flex items-center gap-4 mb-4">
+                    <div style={{ padding: '0.5rem', backgroundColor: '#3b82f6', borderRadius: '8px' }}>
+                      <span style={{ color: 'white', fontSize: '1.5rem' }}>🛡️</span>
                     </div>
-                    <h3 className="text-xl font-semibold">Güvenilir İçerik</h3>
+                    <h3>Güvenilir İçerik</h3>
                   </div>
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-gray-600">
                     Tüm makalelerimiz uzman doktorlar tarafından yazılır ve tıbbi açıdan doğrulanır.
                   </p>
                 </div>
                 
-                <div className="space-y-4 p-6 rounded-xl bg-gradient-to-br from-green-50 to-green-100/50">
-                  <div className="flex items-center space-x-3">
-                    <div className="p-2 bg-green-500 rounded-lg">
-                      <Heart className="h-6 w-6 text-white" />
+                <div className="card" style={{ padding: '1.5rem', background: 'linear-gradient(135deg, rgba(34, 197, 94, 0.05) 0%, rgba(34, 197, 94, 0.1) 100%)' }}>
+                  <div className="flex items-center gap-4 mb-4">
+                    <div style={{ padding: '0.5rem', backgroundColor: '#22c55e', borderRadius: '8px' }}>
+                      <span style={{ color: 'white', fontSize: '1.5rem' }}>❤️</span>
                     </div>
-                    <h3 className="text-xl font-semibold">Kişiselleştirilmiş</h3>
+                    <h3>Kişiselleştirilmiş</h3>
                   </div>
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-gray-600">
                     İhtiyaçlarınıza göre özelleştirilmiş sağlık tavsiyeleri ve rehberler.
                   </p>
                 </div>
                 
-                <div className="space-y-4 p-6 rounded-xl bg-gradient-to-br from-purple-50 to-purple-100/50">
-                  <div className="flex items-center space-x-3">
-                    <div className="p-2 bg-purple-500 rounded-lg">
-                      <Activity className="h-6 w-6 text-white" />
+                <div className="card" style={{ padding: '1.5rem', background: 'linear-gradient(135deg, rgba(168, 85, 247, 0.05) 0%, rgba(168, 85, 247, 0.1) 100%)' }}>
+                  <div className="flex items-center gap-4 mb-4">
+                    <div style={{ padding: '0.5rem', backgroundColor: '#a855f7', borderRadius: '8px' }}>
+                      <span style={{ color: 'white', fontSize: '1.5rem' }}>⚡</span>
                     </div>
-                    <h3 className="text-xl font-semibold">Güncel Bilgiler</h3>
+                    <h3>Güncel Bilgiler</h3>
                   </div>
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-gray-600">
                     En son tıp araştırmalarına dayalı güncel sağlık bilgileri.
                   </p>
                 </div>
                 
-                <div className="space-y-4 p-6 rounded-xl bg-gradient-to-br from-orange-50 to-orange-100/50">
-                  <div className="flex items-center space-x-3">
-                    <div className="p-2 bg-orange-500 rounded-lg">
-                      <Brain className="h-6 w-6 text-white" />
+                <div className="card" style={{ padding: '1.5rem', background: 'linear-gradient(135deg, rgba(245, 101, 67, 0.05) 0%, rgba(245, 101, 67, 0.1) 100%)' }}>
+                  <div className="flex items-center gap-4 mb-4">
+                    <div style={{ padding: '0.5rem', backgroundColor: '#f56543', borderRadius: '8px' }}>
+                      <span style={{ color: 'white', fontSize: '1.5rem' }}>🧠</span>
                     </div>
-                    <h3 className="text-xl font-semibold">Kolay Anlaşılır</h3>
+                    <h3>Kolay Anlaşılır</h3>
                   </div>
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-gray-600">
                     Karmaşık tıbbi konuları herkesin anlayabileceği dilde açıklıyoruz.
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="space-y-8">
-              <Card className="border-0 shadow-lg">
-                <CardHeader>
-                  <CardTitle className="text-xl">Popüler Makaleler</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
+            <div>
+              <div className="card mb-8">
+                <div className="card-header">
+                  <h3 className="card-title">Popüler Makaleler</h3>
+                </div>
+                <div style={{ padding: '0 1.5rem 1.5rem' }}>
                   {popularPosts.map((post, index) => (
-                    <div key={index} className="flex items-start space-x-4 p-4 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer">
-                      <span className="flex-shrink-0 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center text-sm font-semibold">
+                    <div key={index} className="flex items-start gap-4 py-4" style={{ borderBottom: index < popularPosts.length - 1 ? '1px solid #f3f4f6' : 'none' }}>
+                      <span style={{
+                        width: '32px',
+                        height: '32px',
+                        backgroundColor: '#0066cc',
+                        color: 'white',
+                        borderRadius: '50%',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        fontSize: '0.875rem',
+                        fontWeight: '600',
+                        flexShrink: 0
+                      }}>
                         {index + 1}
                       </span>
-                      <div className="space-y-2 flex-1">
-                        <h4 className="font-medium text-sm leading-snug hover:text-primary transition-colors">
+                      <div style={{ flex: 1 }}>
+                        <h4 style={{ fontSize: '0.875rem', fontWeight: '500', lineHeight: '1.4', marginBottom: '0.5rem' }}>
                           {post.title}
                         </h4>
-                        <div className="flex items-center text-xs text-gray-500">
-                          <Clock className="h-3 w-3 mr-1" />
-                          {post.readingTime} dk okuma
+                        <div className="flex items-center text-gray-600" style={{ fontSize: '0.75rem' }}>
+                          <span>⏱️</span>
+                          <span style={{ marginLeft: '0.25rem' }}>{post.readingTime} dk okuma</span>
                         </div>
                       </div>
                     </div>
                   ))}
-                </CardContent>
-              </Card>
+                </div>
+              </div>
 
-              <Card className="bg-gradient-to-br from-primary/10 to-secondary/10 border-0 shadow-lg">
-                <CardHeader>
-                  <CardTitle className="text-xl">Sağlık Haberleri</CardTitle>
-                  <CardDescription className="text-base">
+              <div className="card" style={{ background: 'linear-gradient(135deg, rgba(0, 102, 204, 0.1) 0%, rgba(0, 170, 136, 0.1) 100%)' }}>
+                <div className="card-header">
+                  <h3 className="card-title">Sağlık Haberleri</h3>
+                  <p className="card-description">
                     Haftalık sağlık bültenimize abone olun ve güncel sağlık haberlerini kaçırmayın
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <Button className="w-full h-11">
-                    Ücretsiz Abone Ol
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </CardContent>
-              </Card>
+                  </p>
+                </div>
+                <div className="card-content">
+                  <button className="btn btn-primary" style={{ width: '100%' }}>
+                    Ücretsiz Abone Ol →
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
