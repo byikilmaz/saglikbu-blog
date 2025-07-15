@@ -93,51 +93,51 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary/10 via-secondary/5 to-accent/10 py-20 lg:py-32">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <section className="relative bg-gradient-to-br from-primary/10 via-secondary/5 to-accent/10 py-16 lg:py-24">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="space-y-8">
-              <div className="space-y-4">
-                <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 leading-tight">
+              <div className="space-y-6">
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
                   Sağlığınız İçin
                   <span className="text-primary block">Güvenilir Kaynak</span>
                 </h1>
-                <p className="text-xl text-gray-600 leading-relaxed">
+                <p className="text-lg sm:text-xl text-gray-600 leading-relaxed max-w-lg">
                   Uzman doktorlardan sağlık tavsiyeleri, güncel tıp haberleri ve 
                   kapsamlı sağlık rehberleri ile sağlıklı yaşamın anahtarını keşfedin.
                 </p>
               </div>
               
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-primary hover:bg-primary/90">
+                <Button size="lg" className="bg-primary hover:bg-primary/90 h-12 px-6">
                   Sağlık Bloglarını Keşfet
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
-                <Button variant="outline" size="lg">
+                <Button variant="outline" size="lg" className="h-12 px-6">
                   Uzman Doktorlarımız
                 </Button>
               </div>
 
-              <div className="flex items-center space-x-8 text-sm text-gray-600">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-8 space-y-4 sm:space-y-0 text-sm text-gray-600 pt-4">
                 <div className="flex items-center space-x-2">
-                  <Eye className="h-4 w-4" />
+                  <Eye className="h-4 w-4 text-primary" />
                   <span>10,000+ okuyucu</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <Heart className="h-4 w-4" />
+                  <Heart className="h-4 w-4 text-primary" />
                   <span>500+ makale</span>
                 </div>
               </div>
             </div>
 
             <div className="relative">
-              <div className="aspect-square relative rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 p-8">
-                <div className="absolute inset-0 bg-white/10 backdrop-blur-sm rounded-2xl"></div>
+              <div className="aspect-square relative rounded-3xl bg-gradient-to-br from-primary/20 to-secondary/20 p-8 lg:p-12">
+                <div className="absolute inset-0 bg-white/20 backdrop-blur-sm rounded-3xl"></div>
                 <div className="relative z-10 h-full flex items-center justify-center">
-                  <div className="text-center space-y-4">
-                    <Heart className="h-24 w-24 text-primary mx-auto" />
-                    <h3 className="text-2xl font-bold text-gray-900">SağlıkBu</h3>
-                    <p className="text-gray-600">Sağlığınız bizim önceliğimiz</p>
+                  <div className="text-center space-y-6">
+                    <Heart className="h-24 w-24 lg:h-32 lg:w-32 text-primary mx-auto" />
+                    <h3 className="text-2xl lg:text-3xl font-bold text-gray-900">SağlıkBu</h3>
+                    <p className="text-gray-600 text-lg">Sağlığınız bizim önceliğimiz</p>
                   </div>
                 </div>
               </div>
@@ -148,29 +148,29 @@ export default function Home() {
 
       {/* Featured Posts */}
       <section className="py-16 lg:py-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center space-y-4 mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          <div className="text-center space-y-4 mb-16">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900">
               Öne Çıkan Sağlık Makaleleri
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
               Uzman doktorlarımızın hazırladığı en güncel ve en çok okunan sağlık rehberleri
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {featuredPosts.map((post) => (
-              <Card key={post.id} className="group hover:shadow-lg transition-all duration-300">
+              <Card key={post.id} className="group hover:shadow-xl transition-all duration-300 border-0 shadow-md">
                 <div className="aspect-video relative overflow-hidden rounded-t-xl">
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20"></div>
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <Heart className="h-16 w-16 text-primary/50" />
+                    <Heart className="h-16 w-16 text-primary/60" />
                   </div>
                 </div>
                 
-                <CardHeader>
-                  <div className="flex items-center justify-between text-sm text-gray-500 mb-2">
-                    <span className="bg-primary/10 text-primary px-2 py-1 rounded-full">
+                <CardHeader className="pb-4">
+                  <div className="flex items-center justify-between text-sm text-gray-500 mb-3">
+                    <span className="bg-primary/10 text-primary px-3 py-1 rounded-full font-medium">
                       {post.category}
                     </span>
                     <div className="flex items-center space-x-1">
@@ -178,17 +178,19 @@ export default function Home() {
                       <span>{post.readingTime} dk</span>
                     </div>
                   </div>
-                  <CardTitle className="group-hover:text-primary transition-colors">
+                  <CardTitle className="group-hover:text-primary transition-colors text-lg leading-tight mb-2">
                     {post.title}
                   </CardTitle>
-                  <CardDescription>{post.excerpt}</CardDescription>
+                  <CardDescription className="text-base leading-relaxed">
+                    {post.excerpt}
+                  </CardDescription>
                 </CardHeader>
                 
-                <CardContent>
+                <CardContent className="pt-0">
                   <div className="flex items-center justify-between">
-                    <span className="text-sm text-gray-500">{post.author}</span>
+                    <span className="text-sm text-gray-500 font-medium">{post.author}</span>
                     <Link href={`/blog/${post.id}`}>
-                      <Button variant="ghost" size="sm">
+                      <Button variant="ghost" size="sm" className="h-9 px-3">
                         Devamını Oku
                         <ArrowRight className="ml-1 h-4 w-4" />
                       </Button>
@@ -199,9 +201,9 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="text-center mt-12">
+          <div className="text-center mt-16">
             <Link href="/blog">
-              <Button size="lg" variant="outline">
+              <Button size="lg" variant="outline" className="h-12 px-8">
                 Tüm Makaleleri Görüntüle
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
@@ -212,30 +214,32 @@ export default function Home() {
 
       {/* Categories Section */}
       <section className="py-16 lg:py-24 bg-gray-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center space-y-4 mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          <div className="text-center space-y-4 mb-16">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900">
               Sağlık Kategorileri
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
               İlgilendiğiniz sağlık konularını keşfedin ve uzman tavsiyeleri alın
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {categories.map((category) => (
-              <Card key={category.name} className="group hover:shadow-lg transition-all duration-300 cursor-pointer">
-                <CardHeader className="text-center">
-                  <div className="mx-auto mb-4">
-                    <category.icon className={`h-12 w-12 ${category.color}`} />
+              <Card key={category.name} className="group hover:shadow-xl transition-all duration-300 cursor-pointer border-0 shadow-md">
+                <CardHeader className="text-center pb-4">
+                  <div className="mx-auto mb-6 p-4 bg-gray-50 rounded-2xl w-fit group-hover:bg-primary/10 transition-colors">
+                    <category.icon className={`h-12 w-12 ${category.color} group-hover:scale-110 transition-transform`} />
                   </div>
-                  <CardTitle className="group-hover:text-primary transition-colors">
+                  <CardTitle className="group-hover:text-primary transition-colors text-xl mb-2">
                     {category.name}
                   </CardTitle>
-                  <CardDescription>{category.description}</CardDescription>
+                  <CardDescription className="text-base">
+                    {category.description}
+                  </CardDescription>
                 </CardHeader>
-                <CardContent className="text-center">
-                  <span className="text-sm text-gray-500">
+                <CardContent className="text-center pt-0">
+                  <span className="text-sm text-gray-500 font-medium bg-gray-100 px-3 py-1 rounded-full">
                     {category.postCount} makale
                   </span>
                 </CardContent>
@@ -245,54 +249,65 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Popular Posts Sidebar */}
+      {/* Why SağlıkBu Section */}
       <section className="py-16 lg:py-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
             <div className="lg:col-span-2">
-              <div className="text-center space-y-4 mb-12">
-                <h2 className="text-3xl lg:text-4xl font-bold text-gray-900">
+              <div className="text-center lg:text-left space-y-4 mb-12">
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900">
                   Neden SağlıkBu?
                 </h2>
+                <p className="text-lg text-gray-600 max-w-2xl">
+                  Sağlığınız için güvenilir, uzman onaylı ve güncel bilgilere tek yerden ulaşın
+                </p>
               </div>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="space-y-4">
+                <div className="space-y-4 p-6 rounded-xl bg-gradient-to-br from-blue-50 to-blue-100/50">
                   <div className="flex items-center space-x-3">
-                    <Shield className="h-8 w-8 text-primary" />
+                    <div className="p-2 bg-blue-500 rounded-lg">
+                      <Shield className="h-6 w-6 text-white" />
+                    </div>
                     <h3 className="text-xl font-semibold">Güvenilir İçerik</h3>
                   </div>
-                  <p className="text-gray-600">
+                  <p className="text-gray-600 leading-relaxed">
                     Tüm makalelerimiz uzman doktorlar tarafından yazılır ve tıbbi açıdan doğrulanır.
                   </p>
                 </div>
                 
-                <div className="space-y-4">
+                <div className="space-y-4 p-6 rounded-xl bg-gradient-to-br from-green-50 to-green-100/50">
                   <div className="flex items-center space-x-3">
-                    <Heart className="h-8 w-8 text-primary" />
+                    <div className="p-2 bg-green-500 rounded-lg">
+                      <Heart className="h-6 w-6 text-white" />
+                    </div>
                     <h3 className="text-xl font-semibold">Kişiselleştirilmiş</h3>
                   </div>
-                  <p className="text-gray-600">
+                  <p className="text-gray-600 leading-relaxed">
                     İhtiyaçlarınıza göre özelleştirilmiş sağlık tavsiyeleri ve rehberler.
                   </p>
                 </div>
                 
-                <div className="space-y-4">
+                <div className="space-y-4 p-6 rounded-xl bg-gradient-to-br from-purple-50 to-purple-100/50">
                   <div className="flex items-center space-x-3">
-                    <Activity className="h-8 w-8 text-primary" />
+                    <div className="p-2 bg-purple-500 rounded-lg">
+                      <Activity className="h-6 w-6 text-white" />
+                    </div>
                     <h3 className="text-xl font-semibold">Güncel Bilgiler</h3>
                   </div>
-                  <p className="text-gray-600">
+                  <p className="text-gray-600 leading-relaxed">
                     En son tıp araştırmalarına dayalı güncel sağlık bilgileri.
                   </p>
                 </div>
                 
-                <div className="space-y-4">
+                <div className="space-y-4 p-6 rounded-xl bg-gradient-to-br from-orange-50 to-orange-100/50">
                   <div className="flex items-center space-x-3">
-                    <Brain className="h-8 w-8 text-primary" />
+                    <div className="p-2 bg-orange-500 rounded-lg">
+                      <Brain className="h-6 w-6 text-white" />
+                    </div>
                     <h3 className="text-xl font-semibold">Kolay Anlaşılır</h3>
                   </div>
-                  <p className="text-gray-600">
+                  <p className="text-gray-600 leading-relaxed">
                     Karmaşık tıbbi konuları herkesin anlayabileceği dilde açıklıyoruz.
                   </p>
                 </div>
@@ -300,18 +315,20 @@ export default function Home() {
             </div>
 
             <div className="space-y-8">
-              <Card>
+              <Card className="border-0 shadow-lg">
                 <CardHeader>
-                  <CardTitle>Popüler Makaleler</CardTitle>
+                  <CardTitle className="text-xl">Popüler Makaleler</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   {popularPosts.map((post, index) => (
-                    <div key={index} className="flex items-start space-x-3 p-3 rounded-lg hover:bg-gray-50 transition-colors">
-                      <span className="flex-shrink-0 w-6 h-6 bg-primary text-white rounded-full flex items-center justify-center text-sm font-semibold">
+                    <div key={index} className="flex items-start space-x-4 p-4 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer">
+                      <span className="flex-shrink-0 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center text-sm font-semibold">
                         {index + 1}
                       </span>
-                      <div className="space-y-1">
-                        <h4 className="font-medium text-sm leading-snug">{post.title}</h4>
+                      <div className="space-y-2 flex-1">
+                        <h4 className="font-medium text-sm leading-snug hover:text-primary transition-colors">
+                          {post.title}
+                        </h4>
                         <div className="flex items-center text-xs text-gray-500">
                           <Clock className="h-3 w-3 mr-1" />
                           {post.readingTime} dk okuma
@@ -322,15 +339,15 @@ export default function Home() {
                 </CardContent>
               </Card>
 
-              <Card className="bg-gradient-to-br from-primary/10 to-secondary/10">
+              <Card className="bg-gradient-to-br from-primary/10 to-secondary/10 border-0 shadow-lg">
                 <CardHeader>
-                  <CardTitle>Sağlık Haberleri</CardTitle>
-                  <CardDescription>
-                    Haftalık sağlık bültenimize abone olun
+                  <CardTitle className="text-xl">Sağlık Haberleri</CardTitle>
+                  <CardDescription className="text-base">
+                    Haftalık sağlık bültenimize abone olun ve güncel sağlık haberlerini kaçırmayın
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <Button className="w-full">
+                  <Button className="w-full h-11">
                     Ücretsiz Abone Ol
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>

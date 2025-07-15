@@ -1,6 +1,9 @@
 import { NextResponse } from 'next/server';
 import { seedAllData } from '@/lib/seed-data';
 
+export const dynamic = 'force-static';
+export const revalidate = false;
+
 export async function POST() {
   try {
     await seedAllData();
