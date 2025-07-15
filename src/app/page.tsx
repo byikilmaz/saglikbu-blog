@@ -34,30 +34,30 @@ const featuredPosts = [
 const categories = [
   {
     name: "Kalp Sağlığı",
-    description: "Kardiyovasküler sistem sağlığı",
+    description: "Kardiyovasküler sistem ve kalp hastalıkları",
     icon: "❤️",
-    postCount: 24,
+    postCount: 28,
     slug: "kalp-sagligi"
   },
   {
-    name: "Beslenme",
-    description: "Sağlıklı beslenme rehberleri",
+    name: "Beslenme & Diyet",
+    description: "Sağlıklı beslenme ve diyet programları",
     icon: "🥗",
-    postCount: 31,
+    postCount: 35,
     slug: "beslenme"
   },
   {
     name: "Ruh Sağlığı",
-    description: "Mental sağlık ve psikoloji",
+    description: "Mental sağlık ve psikolojik destek",
     icon: "🧠",
-    postCount: 18,
+    postCount: 22,
     slug: "ruh-sagligi"
   },
   {
     name: "Kadın Sağlığı",
     description: "Kadınlara özel sağlık konuları",
-    icon: "🛡️",
-    postCount: 22,
+    icon: "🌸",
+    postCount: 26,
     slug: "kadin-sagligi"
   },
   {
@@ -68,18 +68,18 @@ const categories = [
     slug: "cocuk-sagligi"
   },
   {
-    name: "Spor Sağlığı",
-    description: "Egzersiz ve fitness rehberi",
-    icon: "⚡",
-    postCount: 15,
+    name: "Fitness & Spor",
+    description: "Egzersiz, fitness ve spor sağlığı",
+    icon: "🏃‍♀️",
+    postCount: 31,
     slug: "spor-sagligi"
   }
 ];
 
 const stats = [
-  { number: "1000+", label: "Sağlık Makalesi" },
-  { number: "50+", label: "Uzman Doktor" },
-  { number: "100K+", label: "Mutlu Okuyucu" }
+  { number: "2.5K+", label: "Sağlık Makalesi" },
+  { number: "150+", label: "Uzman Doktor" },
+  { number: "500K+", label: "Mutlu Okuyucu" }
 ];
 
 export default function Home() {
@@ -91,24 +91,24 @@ export default function Home() {
           <div className="hero-content">
             <div className="hero-text">
               <h1 className="hero-title">
-                Sağlıklı Yaşamın <span className="highlight">Güvenilir Rehberi</span>
+                Sağlıklı Yaşamın <span className="highlight">Modern Rehberi</span>
               </h1>
               <p className="hero-description">
-                Uzman doktorlarımızdan güncel sağlık bilgileri, beslenme önerileri ve 
-                yaşam kalitesini artıracak ipuçları. Sağlığınız için güvenilir kaynak.
+                🌟 Uzman doktorlarımızdan güncel sağlık bilgileri, modern tıp yaklaşımları ve 
+                yaşam kalitenizi artıracak profesyonel öneriler. Sağlığınız için en güvenilir dijital platform.
               </p>
               <div className="hero-buttons">
                 <Link href="/blog" className="btn btn-primary">
-                  📖 Makaleleri Keşfet
+                  🔥 Makaleleri Keşfet
                 </Link>
                 <Link href="/doctors" className="btn btn-outline">
-                  👨‍⚕️ Uzman Doktorlar
+                  ⚡ Uzman Doktorlar
                 </Link>
               </div>
             </div>
             <div className="hero-visual">
               <div className="hero-icon">
-                ❤️
+                💊
               </div>
               <div className="hero-stats">
                 {stats.map((stat, index) => (
@@ -127,9 +127,9 @@ export default function Home() {
       <section className="featured-section">
         <div className="container">
           <div className="section-header">
-            <h2 className="section-title">Öne Çıkan Sağlık Makaleleri</h2>
+            <h2 className="section-title">🔥 Trend Sağlık Makaleleri</h2>
             <p className="section-subtitle">
-              Uzman doktorlarımız tarafından hazırlanan, güncel ve güvenilir sağlık bilgileri
+              Uzman doktorlarımız tarafından hazırlanan, en güncel ve popüler sağlık rehberleri
             </p>
           </div>
           
@@ -145,10 +145,10 @@ export default function Home() {
                   <p className="post-excerpt">{post.excerpt}</p>
                   <div className="post-meta">
                     <span>👨‍⚕️ {post.author}</span>
-                    <span>⏱️ {post.readingTime} dk</span>
+                    <span>⏱️ {post.readingTime} dk okuma</span>
                   </div>
                   <Link href={`/blog/${post.id}`} className="post-link">
-                    Makaleyi Oku →
+                    Detayları Gör →
                   </Link>
                 </div>
               </article>
@@ -161,9 +161,9 @@ export default function Home() {
       <section className="categories-section">
         <div className="container">
           <div className="section-header">
-            <h2 className="section-title">Sağlık Kategorileri</h2>
+            <h2 className="section-title">🎯 Sağlık Kategorileri</h2>
             <p className="section-subtitle">
-              İhtiyacınıza göre sağlık konularını kategoriler halinde keşfedin
+              İhtiyacınıza göre uzman doktor tavsiyelerini kategoriler halinde keşfedin
             </p>
           </div>
           
@@ -189,19 +189,19 @@ export default function Home() {
         <div className="container">
           <div className="newsletter-content">
             <h2 className="newsletter-title">
-              📧 Sağlık Bültenimize Abone Olun
+              💌 Premium Sağlık Bülteni
             </h2>
             <p className="newsletter-description">
-              Haftalık sağlık ipuçları ve yeni makalelerimizden haberdar olun
+              🚀 Haftalık özel sağlık ipuçları, yeni makale bildirimleri ve uzman doktor önerilerini ilk siz öğrenin
             </p>
             <div className="newsletter-form">
               <input
                 type="email"
-                placeholder="E-posta adresiniz"
+                placeholder="E-posta adresinizi girin..."
                 className="newsletter-input"
               />
               <button className="newsletter-btn">
-                Abone Ol
+                Katıl 🎉
               </button>
             </div>
           </div>
@@ -212,18 +212,18 @@ export default function Home() {
       <section className="cta-section">
         <div className="container">
           <h2 className="cta-title">
-            Sağlığınız İçin Doğru Adrestesiniz
+            Sağlığınız İçin En Doğru Adres
           </h2>
           <p className="cta-description">
-            Uzman doktorlarımızla iletişime geçin, sorularınızı sorun ve 
-            kişiselleştirilmiş sağlık tavsiyeleri alın.
+            🏥 Uzman doktorlarımızla iletişime geçin, kişiselleştirilmiş sağlık tavsiyeleri alın ve 
+            sağlıklı yaşam yolculuğunuzda profesyonel destek bulun.
           </p>
           <div className="cta-buttons">
             <Link href="/iletisim" className="btn btn-primary">
-              🏥 Doktorlarımızla İletişim
+              🩺 Uzman Danışmanlık
             </Link>
             <Link href="/hakkimizda" className="btn btn-outline">
-              ℹ️ Hakkımızda
+              🌟 Platform Hakkında
             </Link>
           </div>
         </div>
